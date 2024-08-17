@@ -1,0 +1,97 @@
+label {
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgb(182, 176, 176);
+}
+
+.all .auth {
+    display: flex;
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 25px 20px 0 rgb(136,23,163,0.15);
+}
+
+.all {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #e4c9ee, #eccda4);
+    z-index: -1;
+}
+
+.bg {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(310deg, #ba57d8, #eca451);
+    border-radius: 10px 0px 0px 10px;
+}
+
+.bg h1 {
+    color: white;
+    font-size: 50px;
+}
+
+.lg {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title *{
+    padding-left: 15%;
+    margin: 30px 0px;
+}
+
+.title p {
+    color: rgb(182, 176, 176);
+    font-size: 18px;
+}
+
+.lg form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.sign {
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.sign .link {
+    margin-left: 5px;
+    text-decoration: none;
+    color: rgb(136,23,163);
+}
+
+.forgot {
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.forgot .link {
+    margin-left: 5px;
+    text-decoration: none;
+    color: rgb(136,23,163);
+}
+
+img {
+    width: 35px;
+    position: absolute;
+    top: 18%;
+    right: 16%;
+}

@@ -1,0 +1,19 @@
+.custom-link {
+    text-decoration: none;
+}
+
+.bt {
+    padding: 2px 5px;
+    text-align: center;
+}
+
+.bt p {
+    color: whitesmoke;
+}
+
+.superior {
+    background: linear-gradient(to bottom, #ba57d8, #9023ac);
+    width: 100%;
+    border-radius: 20px;
+}
+

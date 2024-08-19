@@ -95,3 +95,8 @@ img {
     top: 18%;
     right: 16%;
 }
+
+.error {
+    color: #eb4949;
+    font-size: 14px;
+}

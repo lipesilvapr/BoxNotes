@@ -1,10 +1,10 @@
 import '../styles/Input.css'
 
-function Input({field, type}) {
+function Input({field, type, onChange}) {
     return (
         <>
             {field}
-            <input type={type}/>
+            <input type={type} onChange={onChange}/>
         </>
     );
 }

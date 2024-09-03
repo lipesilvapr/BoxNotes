@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import '../styles/Auth.css';
 import Logo from '../img/icons8-lápis-96.svg'
 import Check from "../components/Check";
 import Input from "../components/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../services/firebaseConfig";
+import Loading from "./Loading";
+
 
 function Auth() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [
@@ -18,18 +21,27 @@ function Auth() {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    function handleSingIn(e) {
+    async function handleSingIn(e) {
         e.preventDefault();
-        signInWithEmailAndPassword(email, password);
+        try{
+            await signInWithEmailAndPassword(email, password);  
+            
+        } catch (e) {
+            console.log(e);
+        }
     }
 
+    useEffect(() => {
+        if(user) {
+            navigate("/app");
+        }
+    }, [user]);
+
     if (loading) {
-        return <p>carregando...</p>
-      }
-    
-    if (user) {
-        console.log(user);
+        return <Loading/>
     }
+
+    
     return (
         <div className="all">
             <div className="auth">

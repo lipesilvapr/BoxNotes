@@ -1,5 +1,5 @@
 label {
-    margin: 10px 0px;
+    margin: 5px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -99,4 +99,5 @@ img {
 .error {
     color: #eb4949;
     font-size: 14px;
+    margin: 0;
 }

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../styles/Button.css'
 
-function Button({text, onClick}) {
+function Button({text, onClick, link}) {
     return(
         <div className='superior' onClick={onClick}>
-            <Link to="" className='custom-link'>  
+            <Link to={link} className='custom-link'>  
                 <div className="bt">
                     <p>{text}</p>
                 </div>

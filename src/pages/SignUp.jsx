@@ -70,7 +70,7 @@ function SignUp() {
       <div className="all">
         <div className='auth'>
           <div className='bg'>
-            <img src={Logo}/>
+            <img src={Logo} id='logoLogin'/>
             <h1>Create your account!</h1>
           </div>
           <div className='lg'>

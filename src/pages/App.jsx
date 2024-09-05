@@ -4,6 +4,7 @@ import { signOut } from 'firebase/auth';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import Logo from '../img/icons8-lápis-96.png'
 
 
 function App() {
@@ -21,14 +22,20 @@ function App() {
   }
 
   return (
-    <div className='all'>
-      <div>
-        <h1>Box Notes</h1>
-        <p>Olá {auth.currentUser? auth.currentUser.displayName : "Usuário"}</p>
-        <Button onClick={handleSignOut} text={"Sign Out"}/>
-      </div>
+    <div className='appBody'>
+      <header>
+        <div className='mainName'>
+          <h1>Box Notes</h1>
+          <img src={Logo} id='logoHeader'/>
+        </div>
+        <div>
+          
+        </div>
+      </header>
+      <p>Olá {auth.currentUser? auth.currentUser.displayName : "Usuário"}</p>
+      <Button  onClick={handleSignOut} text={"Sign Out"}/>
     </div>
-  );
+);
 }
 
 export default App;

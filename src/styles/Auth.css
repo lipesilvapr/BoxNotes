@@ -89,7 +89,7 @@ label {
     color: rgb(136,23,163);
 }
 
-img {
+#logoLogin {
     width: 35px;
     position: absolute;
     top: 18%;

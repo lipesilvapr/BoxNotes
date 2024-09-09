@@ -4,7 +4,9 @@ import { signOut } from 'firebase/auth';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import Logo from '../img/icons8-lápis-96.png'
+import Logo from '../img/icons8-lápis-96.png';
+import Box from '../components/Box';
+import Notes from '../components/Notes';
 
 
 function App() {
@@ -33,8 +35,10 @@ function App() {
           <Button  onClick={handleSignOut} text={"Sign Out"}/>
         </div>
       </header>
-
-      
+      <div className='mainContent'>
+        <Box/>
+        <Notes/>
+      </div>
     </div>
 );
 }

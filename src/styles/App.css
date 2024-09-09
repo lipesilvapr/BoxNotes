@@ -20,9 +20,9 @@
 header {
   height: 8dvh;
   display: flex;
-  margin-bottom: 20px;
   justify-content: space-between;
-  box-shadow: 1px 5px 10px 0 whitesmoke;
+  border-bottom: 1px solid white;
+  align-items: center;
 }
 
 p {
@@ -41,9 +41,16 @@ h1 {
   flex-direction: row;
   gap: 10px;
   height: 6dvh;
-  margin-top: 1%;
   align-items: center;
   justify-content: center;
 }
+
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 91.63dvh;
+}
+
 
 

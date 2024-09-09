@@ -1,0 +1,12 @@
+.allBoxes {
+    border-bottom: 1px solid white;
+    height: 100%;
+    width: 25%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.allBoxes {
+    font-size: 20px;
+}

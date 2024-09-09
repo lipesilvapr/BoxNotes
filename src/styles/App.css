@@ -5,8 +5,11 @@
 
 .mainName {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 1%;
+  gap: 10px;
 }
 
 #logoHeader {
@@ -16,6 +19,14 @@
 
 header {
   height: 8dvh;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  box-shadow: 1px 5px 10px 0 whitesmoke;
+}
+
+p {
+  color: whitesmoke;
 }
 
 h1 {
@@ -24,4 +35,15 @@ h1 {
   padding-left: 1%;
   padding-right: 1%;
 }
+
+.user{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 6dvh;
+  margin-top: 1%;
+  align-items: center;
+  justify-content: center;
+}
+
 

@@ -25,15 +25,16 @@ function App() {
     <div className='appBody'>
       <header>
         <div className='mainName'>
-          <h1>Box Notes</h1>
+          <h1>BoxNotes</h1>
           <img src={Logo} id='logoHeader'/>
         </div>
-        <div>
-          
+        <div className='user'>
+          <p>Olá {auth.currentUser? auth.currentUser.displayName : "Usuário"}</p>
+          <Button  onClick={handleSignOut} text={"Sign Out"}/>
         </div>
       </header>
-      <p>Olá {auth.currentUser? auth.currentUser.displayName : "Usuário"}</p>
-      <Button  onClick={handleSignOut} text={"Sign Out"}/>
+
+      
     </div>
 );
 }

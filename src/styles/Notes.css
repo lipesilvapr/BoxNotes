@@ -39,3 +39,10 @@
     border-color: #ba57d8;
     outline: none;
 }
+
+.buttons {
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
+    width: 80px;
+}

@@ -26,7 +26,9 @@ function Notes() {
             <div className="noteSpace">
                 <input className='noteTitle' placeholder='Write your note title here...' value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)}/>
                 <textarea className='note' value={noteContent} onChange={(e) => setNoteContent(e.target.value)}/>
-                <Button text={'Save'} onClick={saveNote}/>
+                <div className='buttons'>
+                    <Button text={'Save'} onClick={saveNote}/>
+                </div>
             </div>
         </>
     );

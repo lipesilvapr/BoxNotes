@@ -5,7 +5,7 @@ import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Logo from '../img/icons8-lápis-96.png';
-import Box from '../components/Box';
+import Boxes from '../components/Boxes';
 import Notes from '../components/Notes';
 
 
@@ -36,7 +36,7 @@ function App() {
         </div>
       </header>
       <div className='mainContent'>
-        <Box/>
+        <Boxes/>
         <Notes/>
       </div>
     </div>

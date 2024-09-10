@@ -1,0 +1,13 @@
+.allBoxes {
+    border-bottom: 3px solid #ba57d8;
+    height: 100%;
+    width: 35%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.sectionTitle {
+    font-size: 25px;
+    color: #eca451;
+}

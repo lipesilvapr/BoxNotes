@@ -1,12 +1,40 @@
 import '../styles/Boxes.css';
 import Shape from './Shape';
+import { useEffect, useState } from 'react';
+import { getDatabase, ref, onValue } from 'firebase/database';
+import app from '../services/firebaseConfig';
+import { useAuth } from '../context/AuthContext';
 
 function Boxes() {
+    const { user } = useAuth(); 
+    const [notes, setNotes] = useState([]);
+
+    useEffect(() => {
+        if (user) {
+            const db = getDatabase(app);
+            const notesRef = ref(db, `Box/Notes/${user.uid}`);
+            
+            const unsubscribe = onValue(notesRef, (snapshot) => {
+                const data = snapshot.val();
+                const notesArray = [];
+                
+                for (let id in data) {
+                    notesArray.push({ id, ...data[id] });
+                }
+                
+                setNotes(notesArray);
+            });
+
+            return () => unsubscribe(); 
+        }
+    }, [user]);
     return(
         <>
             <div className="allBoxes">
                 <p className='sectionTitle'>Boxes</p>
-                <Shape title={"Título"} content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}/>
+                {notes.map((note) => (
+                    <Shape title={note.titleOfNote} content={note.contentOfNote}/>
+                ))}
             </div>
         </>
     );

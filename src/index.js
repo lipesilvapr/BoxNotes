@@ -8,6 +8,7 @@ import SignUp from './pages/SignUp';
 import ForgotPassword from './pages/Forgot';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './services/firebaseConfig';
+import { AuthProvider } from './context/AuthContext';
 
 
 const CurrentUser = () => {
@@ -36,7 +37,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <AuthProvider>
+      <RouterProvider router={router}/>
+    </AuthProvider>
   </React.StrictMode>
 );
 

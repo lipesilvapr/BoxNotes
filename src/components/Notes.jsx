@@ -3,14 +3,16 @@ import '../styles/Notes.css';
 import Button from './Button';
 import { getDatabase, ref, set, push } from 'firebase/database';
 import app from '../services/firebaseConfig';
+import { useAuth } from '../context/AuthContext';
 
 function Notes() {
     const[noteTitle, setNoteTitle] = useState('');
     const[noteContent, setNoteContent] = useState('');
+    const {user} = useAuth();
 
     const saveNote = async () => {
         const db = getDatabase(app);
-        const newDocRef = push(ref(db, "Box/Notes"));
+        const newDocRef = push(ref(db, `Box/Notes/${user.uid}`));
         set(newDocRef, {
             titleOfNote: noteTitle,
             contentOfNote: noteContent,

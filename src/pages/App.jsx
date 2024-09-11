@@ -14,7 +14,6 @@ function App() {
 
   async function handleSignOut() {
     try{
-      console.log(auth.currentUser.uid);
       await signOut(auth);
       navigate("/");
 

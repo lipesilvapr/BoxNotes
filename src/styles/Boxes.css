@@ -10,4 +10,13 @@
 .sectionTitle {
     font-size: 25px;
     color: #eca451;
+    border-bottom: 1px solid #ba57d8;
+    padding-bottom: 5%;
+    margin-top: 5%;
+    margin-bottom: 0;
+}
+
+.notesList {
+    max-height: 88%; 
+    overflow-y: auto; 
 }

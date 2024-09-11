@@ -32,9 +32,11 @@ function Boxes() {
         <>
             <div className="allBoxes">
                 <p className='sectionTitle'>Boxes</p>
-                {notes.map((note) => (
-                    <Shape title={note.titleOfNote} content={note.contentOfNote}/>
-                ))}
+                <div className='notesList'>
+                    {notes.map((note) => (
+                        <Shape title={note.titleOfNote} content={note.contentOfNote}/>
+                    ))}
+                </div>
             </div>
         </>
     );

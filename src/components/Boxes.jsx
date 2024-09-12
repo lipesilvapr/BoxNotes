@@ -5,7 +5,7 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import app from '../services/firebaseConfig';
 import { useAuth } from '../context/AuthContext';
 
-function Boxes() {
+function Boxes({onSelectNote}) {
     const { user } = useAuth(); 
     const [notes, setNotes] = useState([]);
 
@@ -34,7 +34,12 @@ function Boxes() {
                 <p className='sectionTitle'>Boxes</p>
                 <div className='notesList'>
                     {notes.map((note) => (
-                        <Shape title={note.titleOfNote} content={note.contentOfNote}/>
+                        <Shape 
+                        key={note.id} 
+                        title={note.titleOfNote} 
+                        content={note.contentOfNote}
+                        onClick={() => onSelectNote(note)}
+                        />
                     ))}
                 </div>
             </div>

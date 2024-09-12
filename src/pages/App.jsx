@@ -12,6 +12,8 @@ import Notes from '../components/Notes';
 function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [selectedNote, setSelectedNote] = useState(null);
+  const [selectedNoteId, setSelectedNoteId] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -45,8 +47,11 @@ function App() {
         </div>
       </header>
       <div className='mainContent'>
-        <Boxes/>
-        <Notes/>
+        <Boxes onSelectNote={(note) => {
+          setSelectedNote(note);
+          setSelectedNoteId(note.id);
+        }}/>
+        <Notes note={selectedNote} noteId={selectedNoteId}/>
       </div>
     </div>
 );

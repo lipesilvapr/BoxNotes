@@ -17,6 +17,12 @@
 }
 
 .notesList {
+    display: flex;
+    flex-wrap: wrap;
     max-height: 88%; 
     overflow-y: auto; 
+}
+
+.box {
+    flex: 1 1 calc(30%);
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../styles/Notes.css';
 import Button from './Button';
-import { getDatabase, ref, set, push, update } from 'firebase/database';
+import { getDatabase, ref, set, push, update, remove } from 'firebase/database';
 import app from '../services/firebaseConfig';
 import { useAuth } from '../context/AuthContext';
 
@@ -11,29 +11,43 @@ function Notes({note, noteId}) {
     const {user} = useAuth();
 
     const saveNote = async () => {
-        if(!noteId) {
-            const db = getDatabase(app);
-            const newDocRef = push(ref(db, `Box/Notes/${user.uid}`));
-            await set(newDocRef, {
-                titleOfNote: noteTitle,
-                contentOfNote: noteContent,
-            }).then(() => {
-                alert("data saved successfully");
-            }).catch((error) => {
-                alert("error: ", error.message);
-            })
-        } else {
-            const db = getDatabase(app);
-            const noteRef = ref(db, `Box/Notes/${user.uid}/${noteId}`);
-            await update(noteRef, {
-                titleOfNote: noteTitle,
-                contentOfNote: noteContent,
-            }).then(() => {
-                alert("Note updated successfully");
-            }).catch((error) => {
-                alert("Error: ", error.message);
-            });
-        }
+        const db = getDatabase(app);
+        const noteRef = ref(db, `Box/Notes/${user.uid}/${noteId}`);
+        await update(noteRef, {
+            titleOfNote: noteTitle,
+            contentOfNote: noteContent,
+        }).then(() => {
+            alert("Note updated successfully");
+        }).catch((error) => {
+            alert("Error: ", error.message);
+        });
+    }
+
+    const createNote = async () => {
+        const db = getDatabase(app);
+        const newDocRef = push(ref(db, `Box/Notes/${user.uid}`));
+        await set(newDocRef, {
+            titleOfNote: noteTitle,
+            contentOfNote: noteContent,
+        }).then(() => {
+            alert("data saved successfully");
+            setNoteContent('');
+            setNoteTitle('');
+        }).catch((error) => {
+            alert("error: ", error.message);
+        })
+    }
+
+    const deleteNote = async () => {
+        const db = getDatabase(app);
+        const noteRef = ref(db, `Box/Notes/${user.uid}/${noteId}`);
+        await remove(noteRef).then(() => {
+            alert("Note deleted successfully");
+            setNoteContent('');
+            setNoteTitle('');
+        }).catch((error) => {
+            alert("Error: " + error.message);
+        });
     }
 
     useEffect(() => {
@@ -49,7 +63,13 @@ function Notes({note, noteId}) {
                 <input className='noteTitle' placeholder='Write your note title here...' value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)}/>
                 <textarea className='note' value={noteContent} onChange={(e) => setNoteContent(e.target.value)}/>
                 <div className='buttons'>
-                    <Button text={'Save'} onClick={saveNote}/>
+                    <div>
+                        <Button text={'Save'} onClick={saveNote}/>
+                        <Button text={'New'} onClick={createNote}/>
+                    </div>
+                    <div className='deleteBtn'>
+                        {noteId && <Button text={'Delete'} onClick={deleteNote} />}
+                    </div>
                 </div>
             </div>
         </>

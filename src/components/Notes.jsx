@@ -67,7 +67,7 @@ function Notes({note, noteId}) {
                         <Button text={'Save'} onClick={saveNote}/>
                         <Button text={'New'} onClick={createNote}/>
                     </div>
-                    <div className='deleteBtn'>
+                    <div className='deleteBt'>
                         {noteId && <Button text={'Delete'} onClick={deleteNote} />}
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 .custom-link {
     text-decoration: none;
+
 }
 
 .bt {
@@ -15,5 +16,6 @@
     background: linear-gradient(to bottom, #ba57d8, #9023ac);
     width: 100%;
     border-radius: 20px;
+    justify-content: center;
 }
 

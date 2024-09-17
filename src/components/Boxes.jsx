@@ -31,7 +31,10 @@ function Boxes({onSelectNote}) {
     return(
         <>
             <div className="allBoxes">
-                <p className='sectionTitle'>Boxes</p>
+                <section>
+                    <p className='sectionTitle'>Boxes:</p>
+                    
+                </section>
                 <div className='notesList'>
                     {notes.map((note) => (
                         <Shape 

@@ -59,6 +59,12 @@
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
+    gap: 5%;
+}
+
+select {
+  height: 3em;
+  overflow: hidden;
 }
 
 .button-primary {

@@ -14,6 +14,8 @@ function App() {
   const [user, setUser] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
   const [selectedNoteId, setSelectedNoteId] = useState(null);
+  const [selectedBox, setSelectedBox] = useState(null);
+  const [selectedBoxId, setSelectedBoxId] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {

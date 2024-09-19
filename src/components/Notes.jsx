@@ -5,7 +5,7 @@ import { getDatabase, ref, set, push, update, remove } from 'firebase/database';
 import app from '../services/firebaseConfig';
 import { useAuth } from '../context/AuthContext';
 
-function Notes({note, noteId}) {
+function Notes({note, noteId, box, boxId}) {
     const[noteTitle, setNoteTitle] = useState(note ? note.titleOfNote : '');
     const[noteContent, setNoteContent] = useState(note ? note.contentOfNote : '');
     const {user} = useAuth();

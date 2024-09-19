@@ -16,7 +16,7 @@ function Boxes({onSelectNote}) {
     useEffect(() => {
         if (user) {
             const db = getDatabase(app);
-            const notesRef = ref(db, `Box/Notes/${user.uid}/Teste1/`);
+            const notesRef = ref(db, `Box/Notes/${user.uid}/Box1/`);
             
             const unsubscribe = onValue(notesRef, (snapshot) => {
                 const data = snapshot.val();

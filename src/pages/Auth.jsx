@@ -54,7 +54,7 @@ function Auth() {
                         <h1>Login</h1>
                         <p>Welcome back! Please login to your account</p>
                     </div>
-                    <form>
+                    <form onSubmit={handleSingIn}>
                         <label>
                             <label>
                                 <Input field={'Email'} type={'text'} onChange={(e) => setEmail(e.target.value)}/>
@@ -71,7 +71,7 @@ function Auth() {
                             <Link to="/forgotpassword" className="link">Forgot password?</Link>
                         </label>
                         <label>
-                            <Button text={'Login'} onClick={handleSingIn}/>
+                            <Button text={'Login'} onClick={handleSingIn} type="submit"/>
                         </label>
                         <label className="sign">
                             New user? <Link to="/signup" className="link">Sign Up</Link>

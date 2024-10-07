@@ -5,7 +5,7 @@ import { getDatabase, ref, set, push, update, remove } from 'firebase/database';
 import app from '../services/firebaseConfig';
 import { useAuth } from '../context/AuthContext';
 
-function Notes({note, noteId}) {
+function Notes({note, noteId, box, boxId}) {
     const[noteTitle, setNoteTitle] = useState(note ? note.titleOfNote : '');
     const[noteContent, setNoteContent] = useState(note ? note.contentOfNote : '');
     const {user} = useAuth();
@@ -17,7 +17,7 @@ function Notes({note, noteId}) {
             titleOfNote: noteTitle,
             contentOfNote: noteContent,
         }).then(() => {
-            alert("Note updated successfully");
+            
         }).catch((error) => {
             alert("Error: ", error.message);
         });
@@ -30,7 +30,6 @@ function Notes({note, noteId}) {
             titleOfNote: noteTitle,
             contentOfNote: noteContent,
         }).then(() => {
-            alert("data saved successfully");
             setNoteContent('');
             setNoteTitle('');
         }).catch((error) => {
@@ -42,7 +41,6 @@ function Notes({note, noteId}) {
         const db = getDatabase(app);
         const noteRef = ref(db, `Box/Notes/${user.uid}/${noteId}`);
         await remove(noteRef).then(() => {
-            alert("Note deleted successfully");
             setNoteContent('');
             setNoteTitle('');
         }).catch((error) => {
@@ -63,11 +61,11 @@ function Notes({note, noteId}) {
                 <input className='noteTitle' placeholder='Write your note title here...' value={noteTitle} onChange={(e) => setNoteTitle(e.target.value)}/>
                 <textarea className='note' value={noteContent} onChange={(e) => setNoteContent(e.target.value)}/>
                 <div className='buttons'>
-                    <div>
+                    <div className='left'>
                         <Button text={'Save'} onClick={saveNote}/>
                         <Button text={'New'} onClick={createNote}/>
                     </div>
-                    <div className='deleteBt'>
+                    <div className='right'>
                         {noteId && <Button text={'Delete'} onClick={deleteNote} />}
                     </div>
                 </div>

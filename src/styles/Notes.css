@@ -50,18 +50,19 @@
     justify-content: space-between;
 }
 
-.deleteBt {
-    width: 39%;
+.deleteBtn {
+    width: 99%;
     text-align: center;
 }
 
 .buttons div {
     display: flex;
-    width: 20%;
-    justify-content: space-between;
+    width: 30%;
+    text-align: justify;
+    
 }
 
-.buttons div * {
-    width: 40%;
-    text-align: center;
+.left {
+    gap: 5%;
+    justify-content: flex-end;
 }
